@@ -1,40 +1,40 @@
-# notify-line-dev-news
-[LINE Developer news](https://developers.line.biz/ja/news/) が更新された時にLINE Notifyで通知するスクリプト
+#   notify - line - dev - news
+[ LINE   Developer   news ](https://developers.line.biz/ja/news/)이 갱신되었을 때 LINE Notify로 통지하는 스크립트
 
-cron設定すると最新情報を素早くLINEで通知できる。
+cron을 설정하면 최신 정보를 빠르게 LINE으로 알릴 수 있다.
 
-## Setup
-```bash
-$ pip install -r requirements.txt
-$ cp .env.sample .env
+##   Setup
+``` bash
+$   pip   install   - r   requirements . txt
+$   cp   . env . sample   . env
 ```
 
-## Step1
-[こちら](https://notify-bot.line.me/my/)からLINEにログインして、通知したいトークルームを選び、トークン発行。
+##   Step 1
+[여기] (https://notify-bot.line.me/my/)에서 LINE에 로그인하여 알리고 싶은 토크룸을 선택하여 토큰 발급.
 
-**Setup** で作成した`.env`の`NOTIFY_TOKEN`にトークンを記載。  
-データベース名を変更したい時は`DB_FILE_PATH`を変更。
+**Setup**에서 작성한 `.env`의 `NOTIFY_TOKEN`에 토큰을 기재.  
+데이터베이스명을 변경하고 싶을 때는 'DB_FILE_PATH'를 변경.
 
-```bash
-DB_FILE_PATH="news.sqlite"
-NOTIFY_TOKEN="iEET2ScqVhKrt45ZTXXXXXXXXXXXX"
+``` bash
+DB _ FILE _ PATH = " news . sqlite "
+NOTIFY _ TOKEN = " iEET 2 ScqVhKrt 45 ZTXXXXXXXXXXXX "
 ```
 
-## Step2
-実行する。
-```bash
-$ python3 notice.py
+##   Step 2
+실행하다.
+``` bash
+$   python 3   notice.py
 ```
 
-## 注意
-初回実行はデータベースにデータが無いので、連続して沢山の通知が来る。  
-そのため、`./news_notify/news/config.py`に`NOTIFY_SPAN`を設けてある。  
-この値を書き換えると、指定した秒数ごとに通知を行うことができる。
+## 주의
+첫 실행은 데이터베이스에 데이터가 없기 때문에 연속해서 많은 통지가 온다.  
+그 때문에, `./news_notify/news/config.py`에 `NOTIFY_SPAN`을 마련하고 있다.  
+이 값을 바꿔 쓰면 지정한 초마다 알림을 할 수 있다.
 
-```python
-NOTIFY_SPAN = 0
+``` python
+NOTIFY _ SPAN   =   0
 ```
 
-## Lint
-- black
-- flake8
+##   Lint
+-   black
+-   flake 8
